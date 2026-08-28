@@ -201,3 +201,113 @@ body {
     font-size: 0.8rem;
     color: #9d174d;
 }
+/* ==========================================================================
+   MÃ TỐI ƯU GIAO DIỆN CHO THIẾT BỊ DI ĐỘNG (MOBILE OPTIMIZATION)
+   ========================================================================== */
+
+/* 1. Tối ưu chung cho toàn bộ màn hình điện thoại (Dưới 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 16px; /* Giảm bớt viền đen ngoài rìa để tăng không gian hiển thị */
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%; /* Ép khung chứa bo sát màn hình điện thoại */
+    }
+
+    /* Thu gọn không gian phần Profile phía trên */
+    .profile .avatar {
+        width: 84px;   /* Thu nhỏ nhẹ ảnh avatar cho thanh thoát */
+        height: 84px;
+        margin-bottom: 12px;
+    }
+
+    .profile h1 {
+        font-size: 1.35rem; /* Giảm cỡ chữ tên để không bị xuống dòng bừa bãi */
+        margin-bottom: 6px;
+    }
+
+    .profile .bio {
+        font-size: 0.88rem;
+        margin-bottom: 24px; /* Thu hẹp khoảng cách với danh sách liên kết */
+    }
+
+    /* Tối ưu lại danh sách liên kết */
+    .links {
+        gap: 12px; /* Thu hẹp khoảng cách giữa các nút để màn hình ngắn đỡ phải cuộn nhiều */
+    }
+
+    .link-card {
+        padding: 12px 16px; /* Giảm bớt khoảng đệm bên trong nút bấm cho nhỏ gọn */
+        border-radius: 18px; /* Bo góc nhỏ hơn một chút cho vừa vặn */
+        gap: 14px; /* Giảm khoảng cách giữa icon và chữ */
+    }
+
+    /* Thu nhỏ nhẹ icon 60px xuống 50px trên mobile để nhường không gian cho chữ */
+    .link-icon {
+        width: 50px;
+        height: 50px;
+        border-width: 2px; /* Viền mỏng hơn cho thanh lịch */
+    }
+
+    /* Căn chỉnh lại cụm chữ */
+    .link-content {
+        gap: 3px; /* Thu hẹp khoảng cách giữa tiêu đề và ngày tháng */
+    }
+
+    .link-main {
+        font-size: 1rem; /* Giảm cỡ chữ tiêu đề xuống một chút để hiển thị đủ câu */
+        gap: 6px;
+    }
+
+    .badge-pulse {
+        font-size: 0.6rem;
+        padding: 1px 5px;
+    }
+
+    .update-date {
+        font-size: 0.68rem; /* Ngày tháng nhỏ nhắn, tinh tế ở dòng dưới */
+    }
+}
+
+/* 2. Tối ưu bổ sung cho các dòng điện thoại siêu nhỏ (Ví dụ: iPhone SE, dòng Android cũ dưới 360px) */
+@media (max-width: 360px) {
+    .link-card {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .link-icon {
+        width: 44px; /* Thu nhỏ icon thêm một chút để tránh tràn màn hình */
+        height: 44px;
+    }
+
+    .link-main {
+        font-size: 0.95rem;
+    }
+}
+
+/* 3. Tối ưu trải nghiệm chạm (Touch UX) loại bỏ hiệu ứng hover bị dính trên màn hình cảm ứng */
+@media (hover: none) {
+    .link-card:hover {
+        transform: none; /* Không đẩy nút sang phải khi chạm tay vào (tránh bị khựng giao diện) */
+        background: rgba(255, 255, 255, 0.6); /* Giữ nguyên màu nền kính mờ khi chạm */
+        color: #4c0519;
+    }
+    
+    /* Chỉ đổi màu và hiệu ứng khi người dùng thực sự kích hoạt nhấn giữ (Active) */
+    .link-card:active {
+        background: linear-gradient(135deg, #f43f5e, #fda4af);
+        color: #ffffff;
+        transform: scale(0.98); /* Hiệu ứng lún nút xuống khi bấm ngón tay vào */
+    }
+    
+    .link-card:active .link-main {
+        color: #ffffff;
+    }
+    
+    .link-card:active .update-date {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
