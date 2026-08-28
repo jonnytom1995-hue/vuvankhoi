@@ -6,32 +6,29 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* Định vị khung chứa hạt bụi phủ kín màn hình */
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Nằm dưới lớp nội dung */
+    z-index: 1;
     background: linear-gradient(-45deg, #0f172a, #1e1b4b, #2e1065, #0f172a);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
 }
 
-/* Hiệu ứng chuyển động mượt mà cho nền */
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Khung chứa nội dung chính */
 .container {
     position: relative;
-    z-index: 2; /* Đẩy nội dung lên trên lớp hạt bụi để bấm được link */
+    z-index: 2;
     width: 100%;
-    max-width: 480px;
+    max-width: 450px;
     text-align: center;
     margin: auto;
 }
@@ -45,7 +42,7 @@ body {
     padding: 20px;
 }
 
-/* Ảnh đại diện */
+/* Thông tin Profile */
 .profile .avatar {
     width: 96px;
     height: 96px;
@@ -69,7 +66,7 @@ body {
     margin-bottom: 32px;
 }
 
-/* Danh sách các nút link */
+/* Danh sách các nút */
 .links {
     display: flex;
     flex-direction: column;
@@ -77,27 +74,74 @@ body {
     margin-bottom: 32px;
 }
 
-/* Thiết kế nút bấm theo phong cách kính mờ */
+/* Thiết kế nút dạng cột chứa nhiều thông tin */
 .link-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #f8fafc;
     text-decoration: none;
-    padding: 16px;
+    padding: 14px 16px;
     border-radius: 16px;
-    font-weight: 600;
-    font-size: 1rem;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Hiệu ứng khi di chuột */
+.link-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+/* Hàng tiêu đề chính (Icon + Chữ) */
+.link-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.link-main i {
+    font-size: 1.25rem;
+    color: #38bdf8; /* Màu icon xanh công nghệ sáng */
+}
+
+/* Dòng hiển thị ngày tháng cập nhật nhỏ phía dưới */
+.update-date {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+/* Huy hiệu thông báo hiệu ứng mạch đập phát sáng */
+.badge-pulse {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    animation: pulseEffect 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseEffect {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* Hiệu ứng rê chuột toàn diện */
 .link-card:hover {
     background: linear-gradient(135deg, #a855f7, #3b82f6);
     color: #ffffff;
@@ -106,13 +150,15 @@ body {
     box-shadow: 0 12px 24px rgba(168, 85, 247, 0.35);
 }
 
-.link-card i {
-    font-size: 1.25rem;
+.link-card:hover .link-main i {
+    color: #ffffff; /* Chuyển icon sang trắng khi hover */
 }
 
-/* Chân trang */
+.link-card:hover .update-date {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .footer {
     font-size: 0.8rem;
     color: #94a3b8;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
