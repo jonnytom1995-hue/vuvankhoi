@@ -1,53 +1,48 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bio Link</title>
-    <!-- Chèn font chữ từ Google Fonts -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Chèn các icon từ Font Awesome -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- Khung chứa hiệu ứng hạt bụi nền -->
-    <div id="particles-js"></div>
-
-    <div class="container">
-        <!-- Ảnh đại diện và Thông tin cá nhân -->
-        <div class="profile">
-            <img src="https://picsum.photos" alt="Avatar" class="avatar">
-            <h1>Ngọc Bổng Gaming</h1>
-            <p class="bio">Developer | Designer | Content Creator</p>
-        </div>
-
         <!-- Các liên kết (Links) -->
         <div class="links">
+            
+            <!-- Mục GitHub -->
             <a href="https://github.com" target="_blank" class="link-card">
-                <i class="fab fa-github"></i> GitHub
+                <div class="link-content">
+                    <div class="link-main">
+                        <i class="fab fa-github"></i> 
+                        <span>GitHub Dự Án</span>
+                    </div>
+                    <span class="update-date">Cập nhật: 25/08/2026</span>
+                </div>
             </a>
+
+            <!-- Mục LinkedIn -->
             <a href="https://linkedin.com" target="_blank" class="link-card">
-                <i class="fab fa-linkedin"></i> LinkedIn
+                <div class="link-content">
+                    <div class="link-main">
+                        <i class="fab fa-linkedin"></i> 
+                        <span>LinkedIn Profile</span>
+                    </div>
+                    <span class="update-date">Cập nhật: 20/08/2026</span>
+                </div>
             </a>
+
+            <!-- Mục Facebook -->
             <a href="https://facebook.com" target="_blank" class="link-card">
-                <i class="fab fa-facebook"></i> Facebook
+                <div class="link-content">
+                    <div class="link-main">
+                        <i class="fab fa-facebook"></i> 
+                        <span>Facebook Cá Nhân</span>
+                    </div>
+                    <span class="update-date">Cập nhật: 15/07/2026</span>
+                </div>
             </a>
-            <a href="mailto:email@example.com" target="_blank" class="link-card">
-                <i class="fas fa-envelope"></i> Liên hệ Email
+
+            <!-- Mục Portfolio / Website riêng -->
+            <a href="https://yourwebsite.com" target="_blank" class="link-card">
+                <div class="link-content">
+                    <div class="link-main">
+                        <i class="fas fa-globe"></i> 
+                        <span>Portfolio cá nhân</span>
+                    </div>
+                    <span class="update-date">Cập nhật: Vừa xong</span>
+                </div>
             </a>
-        </div>
 
-        <!-- Chân trang -->
-        <div class="footer">
-            <p>© 2026 Crafted by Me</p>
         </div>
-    </div>
-
-    <!-- Nhúng thư viện Particles.js -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- Nhúng file điều khiển cấu hình hạt -->
-    <script src="app.js"></script>
-</body>
-</html>
