@@ -95,55 +95,64 @@ body {
     box-shadow: 0 4px 12px rgba(244, 63, 94, 0.05); /* Đổ bóng hồng mịn */
 }
 
-/* Ảnh icon được điều chỉnh TO HƠN NỮA và bo tròn */
+/* --- 1. Cấu hình ảnh icon TO ẤN TƯỢNG (60px) --- */
 .link-icon {
-    width: 52px;          /* Tăng từ 42px lên 52px để icon to hẳn và rõ nét */
-    height: 52px;         /* Giữ tỉ lệ vuông/tròn 52px */
-    object-fit: cover;    /* Cắt ảnh chuẩn, không bị bóp méo hình */
-    border-radius: 50%;   /* Bo tròn 100% thành hình tròn */
-    border: 2px solid rgba(244, 63, 94, 0.3); /* Viền hồng sắc nét hơn */
+    width: 60px;          /* Kích thước chính xác 60px theo yêu cầu */
+    height: 60px;         /* Giữ tỉ lệ vuông/tròn 60px */
+    object-fit: cover;    /* Cắt ảnh chuẩn nét, không bị bóp méo hình */
+    border-radius: 50%;   /* Bo tròn 100% thành hình tròn hoàn hảo */
+    border: 3px solid rgba(244, 63, 94, 0.3); /* Viền hồng sắc nét, cao cấp */
     background-color: #fff; /* Nền trắng phía sau icon */
-    flex-shrink: 0;       /* Giữ nguyên kích thước icon không bị bóp nhỏ khi chữ dài */
+    flex-shrink: 0;       /* Khóa kích thước, không cho icon bị bóp nhỏ khi chữ dài */
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Điều chỉnh lại nút bấm để chứa vừa vặn icon to */
+/* --- 2. Điều chỉnh lại nút bấm để ôm trọn bộ icon 60px --- */
 .link-card {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px; /* Tăng khoảng cách lên 20px giữa icon to và khối chữ bên phải */
+    gap: 20px;            /* Khoảng cách rộng rãi giữa icon to và khối chữ bên phải */
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #4c0519;
     text-decoration: none;
-    padding: 16px 22px; /* Tăng padding từ 14px lên 16px để nút bấm dày dặn, cân đối với icon */
-    border-radius: 20px; /* Bo góc nút bấm lớn hơn (20px) cho mềm mại hợp với icon to */
+    padding: 16px 24px;   /* Padding dày dặn giúp nút bấm cân đối với icon */
+    border-radius: 22px;  /* Bo góc nút lớn hơn tạo cảm giác mềm mại, hiện đại */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.05);
+    box-shadow: 0 6px 16px rgba(244, 63, 94, 0.06);
 }
 
-/* Tăng nhẹ kích thước chữ tiêu đề để cân xứng với icon mới */
+/* --- 3. Căn chữ xếp dọc song song thẳng hàng lề trái --- */
+.link-content {
+    display: flex;
+    flex-direction: column;   /* Xếp dọc: Tiêu đề ở trên, Ngày tháng ở dưới */
+    align-items: flex-start;  /* Căn thẳng hàng lề trái kịch cột cho cả 2 dòng chữ */
+    justify-content: center;  /* Căn cụm chữ nằm chính giữa theo chiều dọc của icon */
+    gap: 6px;                 /* Khoảng cách song song mượt mà giữa dòng trên và dòng dưới */
+    width: 100%;
+}
+
+/* Hàng tiêu đề chính (Hiển thị ở dòng trên) */
 .link-main {
     display: flex;
-    align-items: center;
+    align-items: center;      /* Căn giữa chữ tiêu đề và huy hiệu NEW */
     gap: 8px;
     font-weight: 600;
-    font-size: 1.1rem; /* Tăng nhẹ từ 1.05rem lên 1.1rem để chữ rõ ràng hơn */
+    font-size: 1.12rem;       /* Kích thước chữ lớn, rõ ràng cân xứng với icon 60px */
     color: #4c0519;
 }
 
-/* Dòng hiển thị ngày tháng cập nhật in đậm hiển thị song song ở ngay dòng dưới */
+/* Dòng hiển thị ngày tháng cập nhật in đậm (Hiển thị ở dòng dưới) */
 .update-date {
-    font-size: 0.72rem;
+    font-size: 0.75rem;       /* Cỡ chữ nhỏ tinh tế, làm nền cho tiêu đề chính */
     color: #be123c;
-    font-weight: 700;         /* Giữ nguyên in đậm theo yêu cầu trước */
+    font-weight: 700;         /* Giữ nguyên in đậm đậm nét */
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
 }
-
 
 /* Huy hiệu thông báo màu hồng-cam ngọt ngào */
 .badge-pulse {
