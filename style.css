@@ -74,93 +74,78 @@ body {
     margin-bottom: 32px;
 }
 
-/* Thiết kế nút dạng cột chứa nhiều thông tin */
+/* Thiết kế nút bấm theo hàng ngang, căn lề trái */
 .link-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
+    justify-content: flex-start; /* Đẩy toàn bộ nội dung về bên trái */
+    gap: 16px; /* Khoảng cách giữa ảnh icon và phần chữ */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #f8fafc;
     text-decoration: none;
-    padding: 14px 16px;
+    padding: 12px 20px; /* Thu gọn chiều cao, tăng chiều rộng hai bên */
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Ảnh icon nhỏ gọn và BO TRÒN HOÀN TOÀN */
+.link-icon {
+    width: 32px;          /* Kích thước vừa vặn, nhỏ gọn */
+    height: 32px;
+    object-fit: cover;    /* Cắt ảnh chuẩn không bị bóp méo */
+    border-radius: 50%;   /* Bo tròn 100% thành hình tròn */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Thêm viền mỏng sang trọng cho icon */
+    background-color: #fff; /* Nền trắng phía sau icon nếu ảnh bị trong suốt */
+    flex-shrink: 0;       /* Không cho icon bị bóp nhỏ lại khi chữ quá dài */
+    transition: transform 0.3s ease;
+}
+
+/* Khung bọc chữ căn lề trái */
 .link-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 6px;
+    align-items: flex-start; /* Căn chữ thẳng lề trái */
+    gap: 4px;
     width: 100%;
 }
 
-/* Hàng tiêu đề chính (Icon + Chữ) */
+/* Hàng tiêu đề chính (Chữ + Badge) */
 .link-main {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 8px;
     font-weight: 600;
     font-size: 1.05rem;
 }
 
-.link-main i {
-    font-size: 1.25rem;
-    color: #38bdf8; /* Màu icon xanh công nghệ sáng */
-}
-
-/* Định dạng phần ngày tháng update nhỏ phía dưới (Đã được in đậm) */
+/* Dòng hiển thị ngày tháng cập nhật (In đậm & Căn trái) */
 .update-date {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: #94a3b8;
-    font-weight: 700; /* Thay đổi từ 400 thành 700 để chữ hiển thị IN ĐẬM đậm nét */
-    letter-spacing: 0.3px; /* Giãn cách chữ một chút cho dễ đọc khi in đậm */
+    font-weight: 700; /* Giữ nguyên in đậm */
+    letter-spacing: 0.3px;
     transition: color 0.3s ease;
 }
 
-
-/* Huy hiệu thông báo hiệu ứng mạch đập phát sáng */
-.badge-pulse {
-    background: linear-gradient(135deg, #ef4444, #f97316);
-    color: white;
-    font-size: 0.65rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-    animation: pulseEffect 1.8s infinite ease-in-out;
-}
-
-@keyframes pulseEffect {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-}
-
-/* Hiệu ứng rê chuột toàn diện */
+/* Hiệu ứng di chuột */
 .link-card:hover {
     background: linear-gradient(135deg, #a855f7, #3b82f6);
     color: #ffffff;
-    transform: translateY(-4px);
+    transform: translateX(6px); /* Hiệu ứng đẩy nhẹ sang phải khi hover thay vì bay lên */
     border-color: transparent;
-    box-shadow: 0 12px 24px rgba(168, 85, 247, 0.35);
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
 }
 
-.link-card:hover .link-main i {
-    color: #ffffff; /* Chuyển icon sang trắng khi hover */
+.link-card:hover .link-icon {
+    transform: scale(1.1); /* Icon phóng to nhẹ */
+    border-color: #ffffff; /* Viền icon sáng lên */
 }
 
 .link-card:hover .update-date {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.footer {
-    font-size: 0.8rem;
-    color: #94a3b8;
-}
