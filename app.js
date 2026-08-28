@@ -21,14 +21,14 @@ particlesJS("particles-js", {
 document.addEventListener("DOMContentLoaded", function () {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Tháng trong JS bắt đầu từ 0
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();
-    
     const formattedDate = `${dd}/${mm}/${yyyy}`;
 
-    // Tìm và điền ngày vào các mục được cấu hình tự động
     const autoDateElements = document.querySelectorAll('.update-date[data-auto-date="true"]');
     autoDateElements.forEach(element => {
-        element.textContent = `Cập nhật: Hôm nay (${formattedDate})`;
+        // Cập nhật chuỗi nội dung dài giống hệ thống trong hình ảnh của bạn
+        element.textContent = `Link Cài Trực Tiếp V2.735 Cập nhật: ${formattedDate}`;
     });
 });
+
