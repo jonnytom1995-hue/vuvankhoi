@@ -1,60 +1,38 @@
-/* Thiết kế lại nút bấm để chứa được nhiều dòng */
-.link-card {
+/* --- Thiết kế huy hiệu Badge NEW --- */
+.badge-new {
+    background: linear-gradient(135deg, #ef4444, #f97316); /* Màu gradient đỏ - cam */
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 20px;
+    margin-left: 8px; /* Khoảng cách sau chữ tiêu đề */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    animation: pulseBadge 1.8s infinite ease-in-out; /* Hiệu ứng nhấp nháy mạch đập */
+}
+
+/* Hiệu ứng nhấp nháy mạch đập (Pulse) */
+@keyframes pulseBadge {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Giữ cho layout nút không bị lệch khi có badge */
+.link-main {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: #f8fafc;
-    text-decoration: none;
-    padding: 14px 16px;
-    border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Khung bọc toàn bộ nội dung bên trong nút */
-.link-content {
-    display: flex;
-    flex-direction: column; /* Xếp tên mục và ngày tháng theo chiều dọc */
-    align-items: center;
-    gap: 4px;
-    width: 100%;
-}
-
-/* Phần tên mục chính (Chứa icon và chữ) */
-.link-main {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Khoảng cách giữa icon và chữ */
-    font-weight: 600;
-    font-size: 1.05rem;
-}
-
-.link-main i {
-    font-size: 1.25rem;
-}
-
-/* Định dạng phần ngày tháng update nhỏ phía dưới */
-.update-date {
-    font-size: 0.75rem;
-    color: #94a3b8; /* Màu chữ xám nhẹ tinh tế */
-    font-weight: 400;
-    transition: color 0.3s ease;
-}
-
-/* Hiệu ứng khi di chuột vào nút bấm */
-.link-card:hover {
-    background: linear-gradient(135deg, #a855f7, #3b82f6);
-    color: #ffffff;
-    transform: translateY(-4px);
-    border-color: transparent;
-    box-shadow: 0 12px 24px rgba(168, 85, 247, 0.35);
-}
-
-/* Đổi màu chữ ngày tháng thành trắng sáng khi hover cho dễ đọc */
-.link-card:hover .update-date {
-    color: rgba(255, 255, 255, 0.8);
 }
