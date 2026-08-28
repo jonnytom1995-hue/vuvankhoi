@@ -95,36 +95,43 @@ body {
     box-shadow: 0 4px 12px rgba(244, 63, 94, 0.05); /* Đổ bóng hồng mịn */
 }
 
-/* Ảnh icon được điều chỉnh TO HƠN và bo tròn */
+/* Ảnh icon được điều chỉnh TO HƠN NỮA và bo tròn */
 .link-icon {
-    width: 42px;          /* Tăng từ 32px lên 42px để icon to rõ ràng hơn */
-    height: 42px;         /* Tăng từ 32px lên 42px để giữ tỉ lệ vuông/tròn */
-    object-fit: cover;    /* Giúp ảnh không bị móp méo khi thay đổi kích thước */
+    width: 52px;          /* Tăng từ 42px lên 52px để icon to hẳn và rõ nét */
+    height: 52px;         /* Giữ tỉ lệ vuông/tròn 52px */
+    object-fit: cover;    /* Cắt ảnh chuẩn, không bị bóp méo hình */
     border-radius: 50%;   /* Bo tròn 100% thành hình tròn */
-    border: 2px solid rgba(244, 63, 94, 0.2); /* Viền mỏng màu hồng */
+    border: 2px solid rgba(244, 63, 94, 0.3); /* Viền hồng sắc nét hơn */
     background-color: #fff; /* Nền trắng phía sau icon */
-    flex-shrink: 0;       /* Giữ nguyên kích thước icon không bị bóp méo */
-    transition: transform 0.3s ease;
+    flex-shrink: 0;       /* Giữ nguyên kích thước icon không bị bóp nhỏ khi chữ dài */
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-
-/* Khung bọc chữ xếp dọc: Tiêu đề ở trên, Ngày tháng song song ở dưới */
-.link-content {
+/* Điều chỉnh lại nút bấm để chứa vừa vặn icon to */
+.link-card {
     display: flex;
-    flex-direction: column;   /* Xếp theo chiều dọc: Tiêu đề trên, Ngày dưới */
-    align-items: flex-start;  /* Căn thẳng hàng lề trái cho cả 2 dòng chữ */
-    justify-content: center;  /* Căn giữa cụm chữ theo chiều dọc so với icon */
-    gap: 4px;                 /* Khoảng cách nhỏ vừa vặn giữa dòng trên và dòng dưới */
-    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; /* Tăng khoảng cách lên 20px giữa icon to và khối chữ bên phải */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #4c0519;
+    text-decoration: none;
+    padding: 16px 22px; /* Tăng padding từ 14px lên 16px để nút bấm dày dặn, cân đối với icon */
+    border-radius: 20px; /* Bo góc nút bấm lớn hơn (20px) cho mềm mại hợp với icon to */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.05);
 }
 
-/* Hàng tiêu đề chính (Chữ + Badge) hiển thị ở dòng trên */
+/* Tăng nhẹ kích thước chữ tiêu đề để cân xứng với icon mới */
 .link-main {
     display: flex;
-    align-items: center;      /* Căn giữa chữ tiêu đề và huy hiệu NEW */
-    gap: 8px;                 /* Khoảng cách giữa chữ và huy hiệu NEW */
+    align-items: center;
+    gap: 8px;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1.1rem; /* Tăng nhẹ từ 1.05rem lên 1.1rem để chữ rõ ràng hơn */
     color: #4c0519;
 }
 
