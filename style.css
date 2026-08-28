@@ -202,112 +202,160 @@ body {
     color: #9d174d;
 }
 /* ==========================================================================
-   MÃ TỐI ƯU GIAO DIỆN CHO THIẾT BỊ DI ĐỘNG (MOBILE OPTIMIZATION)
+   CẤU TRÚC GIAO DIỆN NỀN TẢNG (HIỂN THỊ CHUẨN TRÊN MÁY TÍNH & TABLET)
    ========================================================================== */
 
-/* 1. Tối ưu chung cho toàn bộ màn hình điện thoại (Dưới 480px) */
+/* Khung chứa các nút bấm */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+/* Thiết kế nút bấm theo hàng ngang, căn lề trái */
+.link-card {
+    display: flex;
+    align-items: center;       /* Căn giữa icon và khối chữ theo chiều dọc */
+    justify-content: flex-start;/* Đẩy toàn bộ nội dung về sát lề trái */
+    gap: 20px;                 /* Khoảng cách an toàn giữa icon 60px và khối chữ */
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Tương thích mượt với trình duyệt Safari của iOS */
+    color: #4c0519;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 22px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.05);
+    width: 100%;
+}
+
+/* Ảnh icon To ấn tượng kích thước 60px */
+.link-icon {
+    width: 60px;               /* Khởi tạo 60px chuẩn mực */
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;        /* Bo tròn 100% */
+    border: 2px solid rgba(244, 63, 94, 0.3);
+    background-color: #fff;
+    flex-shrink: 0;            /* Ngăn chặn tình trạng icon bị méo khi xem trên màn hình hẹp */
+}
+
+/* Khối văn bản: Tiêu đề ở trên, Ngày tháng song song kịch lề trái ở dưới */
+.link-content {
+    display: flex;
+    flex-direction: column;    /* Chuyển sang hàng dọc: Dòng trên & Dòng dưới */
+    align-items: flex-start;   /* ÉP THẲNG HÀNG LỀ TRÁI SONG SONG TUYỆT ĐỐI */
+    justify-content: center;   /* Căn cụm chữ nằm giữa chiều cao của icon */
+    gap: 4px;                  /* Khoảng cách song song mượt mà giữa dòng trên và dòng dưới */
+    width: 100%;
+    text-align: left;          /* Đảm bảo chữ luôn canh lề trái */
+}
+
+/* Dòng trên: Tiêu đề + Huy hiệu NEW */
+.link-main {
+    display: flex;
+    align-items: center;       /* Căn giữa chữ tiêu đề và huy hiệu NEW */
+    gap: 8px;
+    font-weight: 700;          /* In đậm tiêu đề chính */
+    font-size: 1.15rem;
+    color: #4c0519;
+}
+
+/* Dòng dưới: Ngày tháng cập nhật (In đậm hoàn toàn) */
+.update-date {
+    font-size: 0.78rem;
+    color: #ef4444;            /* Màu đỏ nổi bật cho dòng chữ cập nhật giống ảnh mẫu */
+    font-weight: 700;          /* In đậm hoàn toàn theo yêu cầu */
+    letter-spacing: 0.2px;
+}
+
+/* Huy hiệu Pulse NEW nhấp nháy phát sáng */
+.badge-pulse {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    animation: pulseEffect 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseEffect {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+
+/* ==========================================================================
+   MÃ TỐI ƯU RESPONSIVE ĐỘC QUYỀN CHO THIẾT BỊ DI ĐỘNG (ANDROID & IOS)
+   ========================================================================== */
+
 @media (max-width: 480px) {
+    /* Thu gọn vùng trống biên ngoài điện thoại */
     body {
-        padding: 16px; /* Giảm bớt viền đen ngoài rìa để tăng không gian hiển thị */
+        padding: 12px;
     }
 
-    .container {
-        width: 100%;
-        max-width: 100%; /* Ép khung chứa bo sát màn hình điện thoại */
-    }
-
-    /* Thu gọn không gian phần Profile phía trên */
-    .profile .avatar {
-        width: 84px;   /* Thu nhỏ nhẹ ảnh avatar cho thanh thoát */
-        height: 84px;
-        margin-bottom: 12px;
-    }
-
-    .profile h1 {
-        font-size: 1.35rem; /* Giảm cỡ chữ tên để không bị xuống dòng bừa bãi */
-        margin-bottom: 6px;
-    }
-
-    .profile .bio {
-        font-size: 0.88rem;
-        margin-bottom: 24px; /* Thu hẹp khoảng cách với danh sách liên kết */
-    }
-
-    /* Tối ưu lại danh sách liên kết */
-    .links {
-        gap: 12px; /* Thu hẹp khoảng cách giữa các nút để màn hình ngắn đỡ phải cuộn nhiều */
-    }
-
+    /* Tối ưu kích thước nút bấm trên màn hình điện thoại cảm ứng */
     .link-card {
-        padding: 12px 16px; /* Giảm bớt khoảng đệm bên trong nút bấm cho nhỏ gọn */
-        border-radius: 18px; /* Bo góc nhỏ hơn một chút cho vừa vặn */
-        gap: 14px; /* Giảm khoảng cách giữa icon và chữ */
+        padding: 12px 16px;    /* Thu nhỏ padding để tăng diện tích hiển thị chữ */
+        gap: 14px;             /* Giảm khoảng cách giữa icon và chữ xuống */
+        border-radius: 16px;
     }
 
-    /* Thu nhỏ nhẹ icon 60px xuống 50px trên mobile để nhường không gian cho chữ */
+    /* Thu nhỏ tỷ lệ icon từ 60px xuống 52px để nhường chỗ cho dòng chữ dài trên mobile */
     .link-icon {
-        width: 50px;
-        height: 50px;
-        border-width: 2px; /* Viền mỏng hơn cho thanh lịch */
+        width: 52px;
+        height: 52px;
     }
 
-    /* Căn chỉnh lại cụm chữ */
-    .link-content {
-        gap: 3px; /* Thu hẹp khoảng cách giữa tiêu đề và ngày tháng */
-    }
-
+    /* Thu gọn cỡ chữ giúp giao diện hiển thị gọn gàng trên 1 dòng, không bị tràn viền */
     .link-main {
-        font-size: 1rem; /* Giảm cỡ chữ tiêu đề xuống một chút để hiển thị đủ câu */
+        font-size: 1rem;       /* Cỡ chữ tiêu đề tối ưu cho mobile */
         gap: 6px;
     }
 
-    .badge-pulse {
-        font-size: 0.6rem;
-        padding: 1px 5px;
-    }
-
     .update-date {
-        font-size: 0.68rem; /* Ngày tháng nhỏ nhắn, tinh tế ở dòng dưới */
+        font-size: 0.7rem;     /* Dòng text cập nhật nhỏ gọn, song song sắc nét */
     }
 }
 
-/* 2. Tối ưu bổ sung cho các dòng điện thoại siêu nhỏ (Ví dụ: iPhone SE, dòng Android cũ dưới 360px) */
+/* Tối ưu bổ sung cho các dòng điện thoại kích thước siêu nhỏ (iPhone SE hoặc Android đời cũ dưới 360px) */
 @media (max-width: 360px) {
     .link-card {
         padding: 10px 12px;
         gap: 10px;
     }
-
     .link-icon {
-        width: 44px; /* Thu nhỏ icon thêm một chút để tránh tràn màn hình */
-        height: 44px;
+        width: 46px;           /* Thu nhỏ nhẹ icon để bảo vệ dòng chữ không bị vỡ bố cục */
+        height: 46px;
     }
-
     .link-main {
         font-size: 0.95rem;
     }
+    .update-date {
+        font-size: 0.65rem;
+    }
 }
 
-/* 3. Tối ưu trải nghiệm chạm (Touch UX) loại bỏ hiệu ứng hover bị dính trên màn hình cảm ứng */
+/* Loại bỏ hoàn toàn lỗi dính hiệu ứng Hover chuột trên hệ điều hành iOS/Android */
 @media (hover: none) {
     .link-card:hover {
-        transform: none; /* Không đẩy nút sang phải khi chạm tay vào (tránh bị khựng giao diện) */
-        background: rgba(255, 255, 255, 0.6); /* Giữ nguyên màu nền kính mờ khi chạm */
-        color: #4c0519;
+        transform: none;
+        background: rgba(255, 255, 255, 0.65);
     }
-    
-    /* Chỉ đổi màu và hiệu ứng khi người dùng thực sự kích hoạt nhấn giữ (Active) */
+    /* Chuyển đổi sang hiệu ứng nhấn nút lún vật lý (Active UX) cao cấp khi ngón tay chạm vào */
     .link-card:active {
         background: linear-gradient(135deg, #f43f5e, #fda4af);
         color: #ffffff;
-        transform: scale(0.98); /* Hiệu ứng lún nút xuống khi bấm ngón tay vào */
+        transform: scale(0.97);
     }
-    
-    .link-card:active .link-main {
-        color: #ffffff;
-    }
-    
-    .link-card:active .update-date {
-        color: rgba(255, 255, 255, 0.9);
-    }
+    .link-card:active .link-main { color: #ffffff; }
+    .link-card:active .update-date { color: rgba(255, 255, 255, 0.9); }
 }
