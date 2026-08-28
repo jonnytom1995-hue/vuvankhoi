@@ -108,33 +108,35 @@ body {
 }
 
 
-/* Khung bọc chữ căn lề trái */
+/* Khung bọc chữ xếp dọc: Tiêu đề ở trên, Ngày tháng song song ở dưới */
 .link-content {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    flex-direction: column;   /* Xếp theo chiều dọc: Tiêu đề trên, Ngày dưới */
+    align-items: flex-start;  /* Căn thẳng hàng lề trái cho cả 2 dòng chữ */
+    justify-content: center;  /* Căn giữa cụm chữ theo chiều dọc so với icon */
+    gap: 4px;                 /* Khoảng cách nhỏ vừa vặn giữa dòng trên và dòng dưới */
     width: 100%;
 }
 
-/* Hàng tiêu đề chính (Chữ + Badge) */
+/* Hàng tiêu đề chính (Chữ + Badge) hiển thị ở dòng trên */
 .link-main {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: center;      /* Căn giữa chữ tiêu đề và huy hiệu NEW */
+    gap: 8px;                 /* Khoảng cách giữa chữ và huy hiệu NEW */
     font-weight: 600;
     font-size: 1.05rem;
     color: #4c0519;
 }
 
-/* Dòng hiển thị ngày tháng cập nhật in đậm */
+/* Dòng hiển thị ngày tháng cập nhật in đậm hiển thị song song ở ngay dòng dưới */
 .update-date {
     font-size: 0.72rem;
-    color: #be123c; /* Màu hồng xám đậm */
-    font-weight: 700; /* Giữ in đậm */
+    color: #be123c;
+    font-weight: 700;         /* Giữ nguyên in đậm theo yêu cầu trước */
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
 }
+
 
 /* Huy hiệu thông báo màu hồng-cam ngọt ngào */
 .badge-pulse {
