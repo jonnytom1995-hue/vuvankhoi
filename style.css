@@ -95,17 +95,18 @@ body {
     box-shadow: 0 4px 12px rgba(244, 63, 94, 0.05); /* Đổ bóng hồng mịn */
 }
 
-/* Ảnh icon nhỏ gọn bo tròn */
+/* Ảnh icon được điều chỉnh TO HƠN và bo tròn */
 .link-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid rgba(244, 63, 94, 0.2);
-    background-color: #fff;
-    flex-shrink: 0;
+    width: 42px;          /* Tăng từ 32px lên 42px để icon to rõ ràng hơn */
+    height: 42px;         /* Tăng từ 32px lên 42px để giữ tỉ lệ vuông/tròn */
+    object-fit: cover;    /* Giúp ảnh không bị móp méo khi thay đổi kích thước */
+    border-radius: 50%;   /* Bo tròn 100% thành hình tròn */
+    border: 2px solid rgba(244, 63, 94, 0.2); /* Viền mỏng màu hồng */
+    background-color: #fff; /* Nền trắng phía sau icon */
+    flex-shrink: 0;       /* Giữ nguyên kích thước icon không bị bóp méo */
     transition: transform 0.3s ease;
 }
+
 
 /* Khung bọc chữ căn lề trái */
 .link-content {
