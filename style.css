@@ -114,13 +114,15 @@ body {
     color: #38bdf8; /* Màu icon xanh công nghệ sáng */
 }
 
-/* Dòng hiển thị ngày tháng cập nhật nhỏ phía dưới */
+/* Định dạng phần ngày tháng update nhỏ phía dưới (Đã được in đậm) */
 .update-date {
     font-size: 0.75rem;
     color: #94a3b8;
-    font-weight: 400;
+    font-weight: 700; /* Thay đổi từ 400 thành 700 để chữ hiển thị IN ĐẬM đậm nét */
+    letter-spacing: 0.3px; /* Giãn cách chữ một chút cho dễ đọc khi in đậm */
     transition: color 0.3s ease;
 }
+
 
 /* Huy hiệu thông báo hiệu ứng mạch đập phát sáng */
 .badge-pulse {
